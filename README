@@ -1,0 +1,48 @@
+
+
+* Input file organization
+
+This code assumes Each patient's images are located in a folder 
+with the same name as that patient's ID. 
+
+It also assumes that nside this folder are 3 subfolders called CT/, MCI/, mask/ .
+The CT/ folder contains the CT image for that patient. The MCI/ folder
+contains one or more MCI images, more specifically, one MCI image for 
+each value of the sigma parameter. The mask/ folder contains the binary
+segmentation of the lungs. 
+
+It is also assumed that all individual patient's folders are located together 
+into a single parent folder.
+      
+* Input image format
+
+The code is currently written with the assumption that input images are in the
+NRRD image format with the .nhdr extension, but any 3D image format that
+can be read with SimpleITK can be used as well.
+
+* CSV file with patient diagnoses
+
+It is assumed a csv file is provided with the IDs of patients included in the study,
+as well as their correponding diagnostic label. It is assumed this csv file has two columns
+called 'name' and 'Diagnosis'. For each row, the entry in column 'name' should correspond
+to the patient ID which is the same as the name of the folder containing that patient's
+images (see above). That patient's diagnostic label should be listed in column 'Diagnosis'.
+
+* Original SOFIA pipeline
+
+For the original SOFIA pipeline, 500 random 2x2 montages need to be created 
+for each patient. This is done with create_SOFIA_montages.ipynb
+These montages are then loaded when the dataset class is instantiated 
+(as defined in file dataset_SOFIA.py).
+
+Training of the model is done with the code in SOFIA_training.ipynb, testing is done
+with the code in SOFIA_testing.ipynb
+
+* Simplified SOFIA pipeline
+
+No need for montage creation, the input slices are set up and loaded when the dataset class is
+instantiated (file  dataset_SimplifiedSOFIA.py ).
+
+Training of the model is done with the code in SOFIA_training.ipynb, testing is done
+with the code in SOFIA_testing.ipynb
+
