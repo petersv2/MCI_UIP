@@ -28,7 +28,7 @@ called 'name' and 'Diagnosis'. For each row, the entry in column 'name' should c
 to the patient ID which is the same as the name of the folder containing that patient's
 images (see above). That patient's diagnostic label should be listed in column 'Diagnosis'.
 
-* Original SOFIA pipeline
+* SOFIA pipeline
 
 For the original SOFIA pipeline, 500 random 2x2 montages need to be created 
 for each patient. This is done with create_SOFIA_montages.ipynb
@@ -38,11 +38,11 @@ These montages are then loaded when the dataset class is instantiated
 Training of the model is done with the code in SOFIA_training.ipynb, testing is done
 with the code in SOFIA_testing.ipynb
 
-* Simplified SOFIA pipeline
+* EfficientNet-V2 pipeline
 
 No need for montage creation, the input slices are set up and loaded when the dataset class is
-instantiated (file  dataset_SimplifiedSOFIA.py ).
+instantiated (file  dataset_EfficientNetV2.py ).
 
-Training of the model is done with the code in SOFIA_training.ipynb, testing is done
-with the code in SOFIA_testing.ipynb
+Training of the model is done with the code in EfficientNetV2_training.ipynb, testing is done
+with the code in EfficientNetV2_testing.ipynb
 
